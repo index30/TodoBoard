@@ -18,6 +18,8 @@ try:
 except ImportError:
     pass
 
+DEBUG = False
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,8 +36,6 @@ else:
     SECRET_KEY = SECRETS_SETTINGS
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
