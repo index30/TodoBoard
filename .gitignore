@@ -1,3 +1,10 @@
+# 作業ログ
+WBS/
+# シークレット
+local_settings.py
+
+__init__.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -14,6 +21,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+bin/
 lib/
 lib64/
 parts/
@@ -102,6 +110,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+pyvenv.cfg
 .env
 .venv
 env/
