@@ -19,14 +19,11 @@ try:
 except ImportError:
     pass
 
-DEBUG = False
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+DEBUG = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
@@ -74,23 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'configs.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'name',
-        'USER': 'user',
-        'PASSWORD': '',
-        'HOST': 'host',
-        'PORT': '',
-    }
-}
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -131,9 +111,28 @@ STATIC_URL = '/static/'
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+
+
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
-    django_heroku.settings(locals()) 
+    django_heroku.settings(locals())
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'name',
+            'USER': 'user',
+            'PASSWORD': '',
+            'HOST': 'host',
+            'PORT': '',
+        }
+    }
 else:
+    DATABASES = LOCAL_DATABASES
     SECRET_KEY = SECRETS_SETTINGS
+    
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
