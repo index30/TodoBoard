@@ -19,8 +19,7 @@ try:
 except ImportError:
     pass
 
-DEBUG = True
-LOCAL_FLG = False
+DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -117,7 +116,7 @@ STATIC_URL = '/static/'
 
 
 
-if not LOCAL_FLG:
+if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
