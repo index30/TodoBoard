@@ -2,7 +2,7 @@
 WBS/
 # シークレット
 local_settings.py
-
+assets/
 __init__.py
 
 # Byte-compiled / optimized / DLL files
