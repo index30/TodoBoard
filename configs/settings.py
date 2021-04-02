@@ -110,6 +110,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = Path(BASE_DIR, 'assets').as_posix()
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
