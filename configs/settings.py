@@ -109,7 +109,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
+STATIC_ROOT = Path(BASE_DIR, 'staticfiles').as_posix()
 STATICFILES_DIRS = [
     Path(BASE_DIR, 'dashboard/static').as_posix(),
 ]
