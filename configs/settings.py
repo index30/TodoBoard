@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # for dash
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    # end dash
     'dashboard.apps.DashboardConfig',
 ]
 
@@ -141,3 +144,7 @@ else:
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+
+# For Dash
+X_FRAME_OPTIONS = 'SAMEORIGIN'

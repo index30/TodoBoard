@@ -4,6 +4,8 @@ WBS/
 local_settings.py
 staticfiles/
 __init__.py
+etc/
+share/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
