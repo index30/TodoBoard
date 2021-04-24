@@ -117,7 +117,12 @@ STATIC_ROOT = Path(BASE_DIR, 'staticfiles').as_posix()
 STATICFILES_DIRS = [
     Path(BASE_DIR, 'dashboard/static').as_posix(),
 ]
-
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django_plotly_dash.finders.DashAssetFinder',
+    'django_plotly_dash.finders.DashComponentFinder'
+]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Database
@@ -147,4 +152,21 @@ DATABASES['default'].update(db_from_env)
 
 
 # For Dash
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts':[('127.0.0.1', 6379),],
+        }
+    }
+}
+
+PLOTLY_COMPONENTS = [
+    'dash_core_components',
+    'dash_html_components',
+    'dash_renderer',
+    'dpd_components',
+    'dpd_static_support',
+    'dash_bootstrap_components',
+]
 X_FRAME_OPTIONS = 'SAMEORIGIN'
