@@ -19,8 +19,8 @@ try:
 except ImportError:
     pass
 
-DEBUG = False
-LOCAL_FLG = False
+DEBUG = True
+LOCAL_FLG = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -153,10 +153,10 @@ DATABASES['default'].update(db_from_env)
 
 # For Dash
 CHANNEL_LAYERS = {
-    'default':{
+    'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts':[('127.0.0.1', 6379),],
+            'hosts': [('127.0.0.1', 6379), ],
         }
     }
 }
